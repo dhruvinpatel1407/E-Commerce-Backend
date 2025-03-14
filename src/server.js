@@ -5,6 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const specs = require('./swagger');
 require("dotenv").config();
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 const dbConnection = require("./config/config");
 
 dbConnection();
@@ -26,7 +27,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 //Protected routes
 app.use("/api/users", userRoutes);
-;
+app.use("/api/products",productRoutes);
 
 const PORT = process.env.PORT;
 
